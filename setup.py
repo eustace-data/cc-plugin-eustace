@@ -33,7 +33,7 @@ setup(name                 = "cc-plugin-eustace",
     entry_points         = {
         'compliance_checker.suites': [
             'eustace-core = cc_plugin_eustace.eustace_core:EUSTACECoreCheck',
-            'eustace-station = cc_plugin_eustace.eustace_station:EUSTACEStationCheck'
+            'eustace-file-info = cc_plugin_eustace.eustace_file_info:EUSTACEFileInfoCheck'
         ]
     }
 )
