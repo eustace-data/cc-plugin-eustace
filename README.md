@@ -20,11 +20,15 @@ virtualenv venv
 
 2. Activate the virtual environment:
 
-`source venv/bin/activate`
+```
+source venv/bin/activate
+```
 
 3. PIP install the pyessv library:
 
-`pip install pyessv`
+```
+pip install pyessv
+```
 
 4. Pull compliance checker core code from GitHub and install:
 
