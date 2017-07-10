@@ -52,9 +52,22 @@ if [ ! $INSTALL ]; then
     git pull
 fi
 
-pip install .
+python setup.py develop
 
 echo "Testing..."
 export PYTHONPATH=$PYTHONPATH:../check-maker
 compliance-checker --test eustace-core --test eustace-file-info cc_plugin_eustace/tests/data/eustace/mohc_ocean_day.nc
 
+cd ../
+echo "Creating setup_env.sh script"
+
+script=setup_env.sh
+echo "#!/bin/bash" > $script
+echo "source venv/bin/activate" >> $script
+echo "export PYTHONPATH=$PYTHONPATH:../check-maker" >> $script
+echo "cd cc-plugin-eustace/" >> $script
+
+chmod 750 $script
+
+echo "Set up your environment with:"
+echo "source setup_env.sh"

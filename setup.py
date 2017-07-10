@@ -18,7 +18,7 @@ setup(name                 = "cc-plugin-eustace",
     license              = 'BSD License',
     author               = "Ag Stephens",
     author_email         = "ag.stephens@stfc.ac.uk",
-    url                  = "https://github.com/eustace-test/cc-plugin-eustace",
+    url                  = "https://github.com/eustace-data/cc-plugin-eustace",
     packages             = find_packages(),
     install_requires     = reqs,
     classifiers          = [
@@ -32,8 +32,9 @@ setup(name                 = "cc-plugin-eustace",
         ],
     entry_points         = {
         'compliance_checker.suites': [
-            'eustace-core = cc_plugin_eustace.eustace_core:EUSTACECoreCheck',
-            'eustace-file-info = cc_plugin_eustace.eustace_file_info:EUSTACEFileInfoCheck'
+            'eustace-file-info = cc_plugin_eustace.eustace_file_info:EUSTACEFileInfoCheck',
+            'eustace-file-structure = cc_plugin_eustace.eustace_file_structure:EUSTACEFileStructureCheck',
+            'eustace-global-attrs = cc_plugin_eustace.eustace_global_attrs:EUSTACEGlobalAttrsCheck'
         ]
     }
 )
