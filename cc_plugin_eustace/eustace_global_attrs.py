@@ -28,7 +28,7 @@ class EUSTACEGlobalAttrsCheck(BaseNCCheck):
 
     
     def check_cr01(self, ds):
-        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'institution_id~realm~frequency', 'extension': '.nc'},
+        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'institution_id,realm,frequency', 'extension': '.nc'},
                                                     level="HIGH",
                                                     vocabulary_ref="eustace-team:eustace")(ds)
     
@@ -98,11 +98,6 @@ class EUSTACEGlobalAttrsCheck(BaseNCCheck):
                                                     vocabulary_ref="eustace-team:eustace")(ds)
     
     def check_cr15(self, ds):
-        return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'institution', 'vocab_lookup': 'description'},
-                                                    level="HIGH",
-                                                    vocabulary_ref="eustace-team:eustace")(ds)
-    
-    def check_cr16(self, ds):
         return check_package.GlobalAttrRegexCheck(kwargs={'regex': '\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*', 'attribute': 'creation_date'},
                                                     level="MEDIUM",
                                                     vocabulary_ref="")(ds)
