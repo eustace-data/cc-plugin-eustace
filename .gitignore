@@ -99,6 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+setup_env.sh
 
 # Packages specifics
 output/*
