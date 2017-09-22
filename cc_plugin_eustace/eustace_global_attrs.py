@@ -28,7 +28,7 @@ class EUSTACEGlobalAttrsCheck(BaseNCCheck):
 
     
     def check_cr01(self, ds):
-        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'institution_id,realm,frequency', 'extension': '.nc'},
+        return check_package.ValidGlobalAttrsMatchFileNameCheck(kwargs={'delimiter': '_', 'order': 'institution_id~realm~frequency', 'extension': '.nc'},
                                                     level="HIGH",
                                                     vocabulary_ref="eustace-team:eustace")(ds)
     
