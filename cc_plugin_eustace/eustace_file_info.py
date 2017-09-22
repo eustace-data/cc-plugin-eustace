@@ -22,21 +22,18 @@ class EUSTACEFileInfoCheck(object):
     name = 'eustace-file-info'
     supported_ds = [GenericFile, Dataset]
 
-    @classmethod
-    def make_result(cls, level, score, out_of, name, messages):
-        return Result(level, (score, out_of), name, messages)
 
     def setup(self, fpath):
         pass
 
     
     def check_fi01(self, ds):
-        return check_package.FileSizeCheck(kwargs={'threshold': '2', 'strictness': 'soft'},
-                                                    level="MEDIUM",
+        return check_package.FileSizeCheck(kwargs={'threshold': 2, 'strictness': 'soft'},
+                                                    level="LOW",
                                                     vocabulary_ref="")(ds.filepath())
     
     def check_fi02(self, ds):
-        return check_package.FileSizeCheck(kwargs={'threshold': '4', 'strictness': 'hard'},
+        return check_package.FileSizeCheck(kwargs={'threshold': 4, 'strictness': 'hard'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds.filepath())
     

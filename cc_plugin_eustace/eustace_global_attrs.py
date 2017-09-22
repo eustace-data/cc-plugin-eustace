@@ -22,9 +22,6 @@ class EUSTACEGlobalAttrsCheck(BaseNCCheck):
     register_checker = True
     name = 'eustace-global-attrs'
 
-    @classmethod
-    def make_result(cls, level, score, out_of, name, messages):
-        return Result(level, (score, out_of), name, messages)
 
     def setup(self, ds):
         pass
@@ -66,7 +63,7 @@ class EUSTACEGlobalAttrsCheck(BaseNCCheck):
                                                     vocabulary_ref="")(ds)
     
     def check_cr08(self, ds):
-        return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{4,}', 'attribute': 'product_version'},
+        return check_package.GlobalAttrRegexCheck(kwargs={'regex': '.{1,}', 'attribute': 'product_version'},
                                                     level="HIGH",
                                                     vocabulary_ref="")(ds)
     
@@ -92,7 +89,7 @@ class EUSTACEGlobalAttrsCheck(BaseNCCheck):
     
     def check_cr13(self, ds):
         return check_package.GlobalAttrVocabCheck(kwargs={'attribute': 'frequency', 'vocab_lookup': 'canonical_name'},
-                                                    level="HIGH",
+                                                    level="LOW",
                                                     vocabulary_ref="eustace-team:eustace")(ds)
     
     def check_cr14(self, ds):
