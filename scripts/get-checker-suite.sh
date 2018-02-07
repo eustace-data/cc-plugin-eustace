@@ -62,7 +62,7 @@ fi
 source venv/bin/activate
 
 if [ $INSTALL ]; then
-    pip install pyessv
+    pip install pyessv==0.3.5.1.0
 
     for pkg in $writer $plugin $checker $cvs $checklib $checkmaker; do
         git clone $pkg
