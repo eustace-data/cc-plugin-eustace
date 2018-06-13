@@ -20,8 +20,14 @@ import checklib.register.file_checks_register as check_package
 class EUSTACEFileInfoCheck(object):
     register_checker = True
     name = 'eustace-file-info'
+    _cc_spec = 'eustace-file-info'
+    _cc_spec_version = '0.2'
     supported_ds = [GenericFile, Dataset]
-
+    _cc_display_headers = {
+        3: 'Required',
+        2: 'Recommended',
+        1: 'Suggested'
+    }
 
     def setup(self, fpath):
         pass

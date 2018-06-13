@@ -9,7 +9,7 @@ import os
 from netCDF4 import Dataset
 
 # Import base objects from compliance checker
-from compliance_checker.base import Result, BaseNCCheck
+from compliance_checker.base import Result, BaseNCCheck, GenericFile
 
 # Restrict which vocabs will load (for efficiency)
 os.environ["ESSV_VOCABS_ACTIVE"] = "eustace-team"
@@ -21,7 +21,14 @@ import checklib.register.nc_file_checks_register as check_package
 class EUSTACEGlobalAttrsCheck(BaseNCCheck):
     register_checker = True
     name = 'eustace-global-attrs'
-
+    _cc_spec = 'eustace-global-attrs'
+    _cc_spec_version = '0.2'
+    supported_ds = [GenericFile, Dataset]
+    _cc_display_headers = {
+        3: 'Required',
+        2: 'Recommended',
+        1: 'Suggested'
+    }
 
     def setup(self, ds):
         pass
